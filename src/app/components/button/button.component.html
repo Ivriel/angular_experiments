@@ -1,0 +1,30 @@
+<div class="flex gap-5 mt-5">
+    <button mat-button class="ml-5">Click Me!</button>
+    <button mat-raised-button>Click Me!</button>
+    <button mat-flat-button>Click Me!</button>
+    <button mat-stroked-button>Click Me!</button>
+</div>
+
+<div class="flex gap-5 mt-5 items-center">
+    <button mat-icon-button>Icon</button>
+    <button mat-fab>Icon</button>
+    <button mat-mini-fab>Icon</button>
+</div>
+
+<div class="flex gap-5 mt-5 items-center" >
+    <button mat-flat-button class="custom-blue-button">Click Me</button>
+    <button color="accent" disableRipple mat-button>Accent</button>
+    <button color="warn"  mat-raised-button>Warn</button>
+</div>
+
+<h1 class="font-bold text-2xl text-center">Button Toggle</h1>
+<mat-button-toggle #toggleBtn checked disableRipple disabled>Toggle</mat-button-toggle>Checked: {{toggleBtn.checked}}
+
+<div class="mt-4">
+    <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" name="Techs" aria-label="Techs" multiple>
+        <mat-button-toggle value="React">React</mat-button-toggle>
+        <mat-button-toggle value="Angular">Angular</mat-button-toggle>
+        <mat-button-toggle value="Vue">Vue</mat-button-toggle>
+    </mat-button-toggle-group>
+    Group value:  {{toggleGroup.value}}
+</div>

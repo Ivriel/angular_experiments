@@ -1,0 +1,25 @@
+<!-- <h1 mat-dialog-title>Session Timeout</h1>
+<mat-dialog-content>Hi {{data.name}}! You will be logged outdue to inactivity</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close mat-dialog-close="true">Keep Me logging in</button>
+    <button mat-button mat-dialog-close mat-dialog-close="false">Logout</button>
+</mat-dialog-actions> -->
+
+<h2 mat-dialog-title>{{ data ? 'Edit User' : 'Add User' }}</h2>
+
+<form [formGroup]="form" (ngSubmit)="save()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="close()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  </mat-dialog-actions>
+</form>
