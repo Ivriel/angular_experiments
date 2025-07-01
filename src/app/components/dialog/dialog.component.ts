@@ -3,10 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { DataService,User } from '../../services/data.service';
 import { DialogContentComponent } from './dialog-content/dialog-content.component';
 import {MatTableModule} from '@angular/material/table';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
-  imports:[MatTableModule]
+  imports:[MatTableModule,CommonModule]
 })
 export class DialogComponent implements OnInit {
   users: User[] = [];

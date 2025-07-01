@@ -6,7 +6,7 @@ export interface User {
   _id?:string;
   name:string;
   email:string;
-  
+  image?:string; // buat jadi base 64 imagenya
 }
 
 @Injectable({
