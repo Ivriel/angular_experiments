@@ -9,5 +9,5 @@ import {MatBadgeModule} from '@angular/material/badge';
   styleUrl: './icon.component.scss'
 })
 export class IconComponent {
-notifications:number = 5
+notifications:number = 0
 }

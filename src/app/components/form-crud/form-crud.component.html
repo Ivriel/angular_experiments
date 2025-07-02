@@ -1,0 +1,34 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+  <input type="text" name="name" [(ngModel)]="model.name" placeholder="Name" required><br>
+  <input type="email" name="email" [(ngModel)]="model.email" placeholder="Email" required><br>
+  <textarea name="description" [(ngModel)]="model.description" placeholder="Description"></textarea><br>
+
+  <label>Gender:</label>
+  <select name="gender" [(ngModel)]="model.gender" required>
+    <option *ngFor="let g of genders" [value]="g">{{ g }}</option>
+  </select><br>
+
+  <label>Services:</label><br>
+  <div *ngFor="let s of allServices">
+    <input type="checkbox" [value]="s.id" (change)="onChangeCheckBox($event)" [checked]="model.services.includes(s.id)"> {{ s.name }}
+  </div><br>
+
+  <label>Image:</label>
+  <input type="file" (change)="onFileChange($event)"><br>
+  <img *ngIf="previewUrl" [src]="previewUrl" width="100"><br>
+
+  <button type="submit">{{ editId ? 'Update' : 'Submit' }}</button>
+</form>
+
+<hr>
+<h3>Uploaded Users</h3>
+<div *ngFor="let user of userData">
+  <p><strong>{{ user.name }}</strong> ({{ user.email }})</p>
+  <p>{{ user.description }}</p>
+  <p>Gender: {{ user.gender }}</p>
+  <p>Services: {{ user.services?.join(', ') }}</p>
+  <img *ngIf="user.imageUrl" [src]="user.imageUrl" width="100">
+  <button (click)="edit(user)">Edit</button>
+  <button (click)="delete(user._id)">Delete</button>
+  <hr>
+</div>

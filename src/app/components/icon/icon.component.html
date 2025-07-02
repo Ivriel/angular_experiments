@@ -2,7 +2,7 @@
     <mat-icon class="text-[48px] text-blue-500" color="primary">done_all</mat-icon>
 </div>
 <div>
-    <span [matBadge]="notifications">Notifications</span>
+    <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0">Notifications</span>
 </div>
 
 <div class="mt-5">
