@@ -14,7 +14,7 @@ export interface User {
 })
 
 export class DataService {
-  private apiUrl:string = "https://crudcrud.com/api/f3c5e2d35e094634bc7f834bc89248aa/users"
+  private apiUrl:string = "https://crudcrud.com/api/299f330db7dd48eaa304e90e81d1ae86/users"
   constructor(private http:HttpClient) { }
 
   getAll():Observable<User[]>{

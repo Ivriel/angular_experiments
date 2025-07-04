@@ -1,11 +1,34 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" [(opened)]="open">Sidenav</mat-sidenav>
+    <mat-sidenav #sidenav mode="side" [(opened)]="open">
+        <ul class="flex flex-col gap-4">
+            <li>
+                <a routerLinkActive="active" routerLink="/icon">Icon</a>
+            </li>
+            <li>
+                <a routerLinkActive="active" routerLink="/spinner">Spinner</a>
+            </li>
+            <li>
+                <a routerLinkActive="active" routerLink="/dialog">Dialog</a>
+            </li>
+            <li>
+                <a routerLinkActive="active" routerLink="/button">Button</a>
+            </li>
+        </ul>
+    </mat-sidenav>
     <mat-sidenav-content>
-        Main
-        <button (click)="open=!open">Toggle Open</button>
-        <button (click)="sidenav.open()">Open</button>
+        <nav class="bg-white">
+        <button (click)="open = !open" class="cursor-pointer">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <!-- <button (click)="sidenav.open()">Open</button>
         <button (click)="sidenav.close()">Close</button>
-        <button>Toggle</button>
+        <button>Toggle</button> -->
+
+        </nav>
+
+        <div class=" mt-10">
+    <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
