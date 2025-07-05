@@ -1,0 +1,52 @@
+<mat-horizontal-stepper linear #stepper>
+    <mat-step label="Shipping Address" [completed]="isCompleted">
+        <p>Shipping Address</p>
+        <button (click)="isCompleted=true">Done</button>
+    </mat-step>
+        <mat-step label="Billing Address" [completed]="isCompleted2" optional>
+        <p>Billing Address</p>
+        <button (click)="completeStep2(stepper)">Done</button>
+        <div>
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+        <mat-step label="Place Order" [completed]="isCompleted2">
+        <p>Order Details</p>
+    </mat-step>
+         
+</mat-horizontal-stepper>
+
+<mat-vertical-stepper>
+     <mat-step label="Shipping Address" [completed]="isCompleted">
+        <p>Shipping Address</p>
+        <button (click)="isCompleted=true">Done</button>
+    </mat-step>
+        <mat-step label="Billing Address" [completed]="isCompleted2" optional [editable]=false>
+        <p>Billing Address</p>
+        <button (click)="completeStep2(stepper)">Done</button>
+        <div>
+            <button mat-raised-button matStepperPrevious>Back</button>
+            <button mat-raised-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
+        <mat-step label="Place Order" [completed]="isCompleted2">
+        <p>Order Details</p>
+    </mat-step>
+</mat-vertical-stepper>
+
+<mat-vertical-stepper [selectedIndex]="currentStepIndex" [linear]="true" class="pointer-events-none">
+  <mat-step label="Diproses" [editable]="false"></mat-step>
+  <mat-step label="Dikirim" [editable]="false"></mat-step>
+  <mat-step label="Sampai Tujuan" [editable]="false"></mat-step>
+</mat-vertical-stepper>
+
+
+<div *ngFor="let step of steps; let i = index" class="relative">
+  <div
+    class="absolute -left-[15px] top-0 w-4 h-4 rounded-full"
+    [ngClass]="i <= currentStep ? 'bg-blue-500' : 'bg-gray-300'">
+</div>
+  <p [class.text-gray-400]="i > currentStep" class="font-bold">{{ step.title }}</p>
+  <p [class.text-gray-400]="i > currentStep" class="text-sm">{{ step.desc }}</p>
+</div>

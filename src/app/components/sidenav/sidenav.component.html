@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="side" [(opened)]="open">
+    <mat-sidenav #sidenav (opened)="log('Opened')" (closed)="log('Closed')" mode="side" [(opened)]="open">
         <ul class="flex flex-col gap-4">
             <li>
                 <a routerLinkActive="active" routerLink="/icon">Icon</a>
@@ -21,14 +21,15 @@
             <mat-icon>menu</mat-icon>
         </button>
 
-        <!-- <button (click)="sidenav.open()">Open</button>
+        <button (click)="sidenav.open()">Open</button>
         <button (click)="sidenav.close()">Close</button>
-        <button>Toggle</button> -->
+        <button>Toggle</button>
 
         </nav>
 
-        <div class=" mt-10">
-    <router-outlet></router-outlet>
+        <div class="p-4">
+            <h2>Sidenav Component</h2>
+            <p>Ini adalah halaman sidenav. Gunakan tombol menu di atas untuk membuka/menutup sidenav.</p>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

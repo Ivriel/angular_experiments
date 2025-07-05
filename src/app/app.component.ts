@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [SidenavComponent,MatButtonModule],
+  imports: [MatButtonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
