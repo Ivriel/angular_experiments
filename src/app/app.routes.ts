@@ -18,6 +18,8 @@ import { CheckboxRadioComponent } from './components/checkbox-radio/checkbox-rad
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
+import { Dialog2Component } from './components/dialog2/dialog2.component';
+import { TableComponent } from './components/table/table.component';
 
 export const routes: Routes = [
     {
@@ -100,5 +102,13 @@ export const routes: Routes = [
     {
         path:'snackbar',
         component:SnackbarComponent
+    },
+    {
+        path:'dialog2',
+        component:Dialog2Component
+    },
+    {
+        path:'table',
+        component:TableComponent
     }
 ];

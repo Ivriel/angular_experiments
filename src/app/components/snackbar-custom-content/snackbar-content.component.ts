@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-snackbar-custom-content',
   imports: [],
   templateUrl: './snackbar-custom-content.component.html',
-  styleUrl: './snackbar-custom-content.component.css'
+  styleUrl:'./snackbar-custom-content.component.css'
 })
 export class SnackbarCustomContentComponent {
 

@@ -9,7 +9,7 @@ import { SnackbarCustomContentComponent } from '../snackbar-custom-content/snack
   styleUrl: './snackbar.component.css'
 })
 export class SnackbarComponent {
-    snackbar = inject(MatSnackBar)
+    snackbar = inject(MatSnackBar) // sama aja kaya constructor
 
     openSnackBar(message:string,action:string){
       let snackBarRef=this.snackbar.open(message,action,{duration:2000})
