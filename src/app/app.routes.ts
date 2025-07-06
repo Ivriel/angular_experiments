@@ -14,6 +14,8 @@ import { StepperComponent } from './components/stepper/stepper.component';
 import { InputComponent } from './components/input/input.component';
 import { SelectComponent } from './components/select/select.component';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { CheckboxRadioComponent } from './components/checkbox-radio/checkbox-radio.component';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
 
 export const routes: Routes = [
     {
@@ -80,5 +82,13 @@ export const routes: Routes = [
     {
         path:'autocomplete',
         component:AutocompleteComponent
+    },
+    {
+        path:'checkbox-radio',
+        component:CheckboxRadioComponent
+    },
+    {
+        path:'datepicker',
+        component:DatepickerComponent
     }
 ];

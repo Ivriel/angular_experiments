@@ -1,0 +1,46 @@
+<div class="mt-10 ml-10">
+  <mat-form-field appearance="outline" style="width: 250px">
+    <mat-label>Pilih tanggal</mat-label>
+    <input 
+      matInput 
+      [matDatepicker]="myDatePicker" 
+      [(ngModel)]="selectedDate"
+      placeholder="MM/DD/YYYY"
+    >
+    <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker startView="multi-year"></mat-datepicker>
+  </mat-form-field>
+  
+  <div *ngIf="selectedDate" style="margin-top: 16px;">
+    <p>Tanggal yang dipilih: <strong>{{ selectedDate | date:'fullDate' }}</strong></p>
+  </div>
+
+  <div class="mt-10">
+    <mat-form-field>
+      <mat-label>Tanggal dengan batasan</mat-label>
+      <input 
+        matInput 
+        [matDatepicker]="datePicker" 
+        [min]="minDate" 
+        [max]="maxDate"
+        placeholder="MM/DD/YYYY"
+      >
+      <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="mt-10">
+    <mat-form-field>
+      <mat-label>Tanggal dengan batasan</mat-label>
+      <input 
+        matInput 
+        [matDatepicker]="datePicker2" 
+        [matDatepickerFilter]="dateFilter"
+        placeholder="MM/DD/YYYY"
+      >
+      <mat-datepicker-toggle matSuffix [for]="datePicker2"></mat-datepicker-toggle>
+      <mat-datepicker #datePicker2></mat-datepicker>
+    </mat-form-field>
+  </div>
+</div>
