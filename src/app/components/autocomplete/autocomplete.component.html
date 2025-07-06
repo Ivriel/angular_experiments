@@ -1,0 +1,27 @@
+<form>
+  <mat-form-field appearance="outline" style="width: 300px">
+    <input
+      type="text"
+      matInput
+      [(ngModel)]="selectedOption"
+      [matAutocomplete]="auto"
+      name="tech"
+      placeholder="Pilih teknologi..."
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions" [value]="option.name">
+        <div>
+          <strong>{{ option.name }}</strong>
+          <small *ngIf="option.description" style="color: #666; margin-left: 8px;">
+            {{ option.description }}
+          </small>
+        </div>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<div *ngIf="selectedOption" style="margin-top: 16px;">
+  <p>Selected: <strong>{{ selectedOption }}</strong></p>
+</div>
+

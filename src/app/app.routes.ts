@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { ButtonComponent } from './components/button/button.component';
-import { IconComponent } from './components/icon/icon.component';
+import { IconComponent } from './components/icon-and-badge/icon.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
@@ -11,6 +11,9 @@ import { ExpansionComponent } from './components/expansion/expansion.component';
 import { CardComponent } from './components/card/card.component';
 import { TabsComponent } from './components/tabs/tabs.component';
 import { StepperComponent } from './components/stepper/stepper.component';
+import { InputComponent } from './components/input/input.component';
+import { SelectComponent } from './components/select/select.component';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 export const routes: Routes = [
     {
@@ -65,5 +68,17 @@ export const routes: Routes = [
     {
         path:'stepper',
         component:StepperComponent
+    },
+    {
+        path:'input',
+        component:InputComponent
+    },
+    {
+        path:'select',
+        component:SelectComponent
+    },
+    {
+        path:'autocomplete',
+        component:AutocompleteComponent
     }
 ];
