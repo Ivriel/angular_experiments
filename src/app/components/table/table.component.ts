@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -22,15 +29,27 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 @Component({
   selector: 'app-table',
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatFormFieldModule, MatInputModule, CommonModule, FormsModule, MatSortModule],
+  standalone: true,
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
-export class TableComponent {
+export class TableComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'symbol', 'weight'];
   displayedColumnsData: string[] = ['position', 'name', 'symbol'];
-  dataSource = ELEMENT_DATA;
-  logData(row:string){
-    console.log(row)
+  dataSource = new MatTableDataSource(ELEMENT_DATA); // untuk filtering
+
+  @ViewChild(MatSort) sort!: MatSort;
+  
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+  }
+  
+  logData(row: PeriodicElement) {
+    console.log(row);
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }
