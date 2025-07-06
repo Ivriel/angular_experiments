@@ -9,8 +9,8 @@
   >
 </mat-form-field>
 
-<div class="my-5 mx-2">
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<div class="my-5 mx-2 mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
     <!-- Position Column -->
     <ng-container matColumnDef="position">
       <th mat-header-cell mat-sort-header *matHeaderCellDef> No. </th>
@@ -38,4 +38,10 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row (click)="logData(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+  <mat-paginator 
+    [pageSizeOptions]="[3, 5, 10, 20]" 
+    [pageSize]="5"
+    showFirstLastButtons>
+  </mat-paginator>
 </div>

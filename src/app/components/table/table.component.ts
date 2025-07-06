@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 export interface PeriodicElement {
   name: string;
@@ -25,24 +26,30 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+  {position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na'},
+  {position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg'},
+  {position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al'},
+  {position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si'},
+  {position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P'},
 ];
 
 @Component({
   selector: 'app-table',
-  imports: [MatTableModule, MatFormFieldModule, MatInputModule, CommonModule, FormsModule, MatSortModule],
+  imports: [MatTableModule, MatFormFieldModule, MatInputModule, CommonModule, FormsModule, MatSortModule, MatPaginatorModule],
   standalone: true,
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss'
 })
 export class TableComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'symbol', 'weight'];
-  displayedColumnsData: string[] = ['position', 'name', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA); // untuk filtering
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   
   ngAfterViewInit(): void {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
   
   logData(row: PeriodicElement) {
