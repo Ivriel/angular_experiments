@@ -16,6 +16,8 @@ import { SelectComponent } from './components/select/select.component';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 import { CheckboxRadioComponent } from './components/checkbox-radio/checkbox-radio.component';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 export const routes: Routes = [
     {
@@ -90,5 +92,13 @@ export const routes: Routes = [
     {
         path:'datepicker',
         component:DatepickerComponent
+    },
+    {
+        path:'tooltip',
+        component:TooltipComponent
+    },
+    {
+        path:'snackbar',
+        component:SnackbarComponent
     }
 ];
