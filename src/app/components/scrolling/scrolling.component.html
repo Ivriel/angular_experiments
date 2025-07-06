@@ -1,0 +1,6 @@
+<cdk-virtual-scroll-viewport itemSize="100" class="h-[400px] my-5 mx-5">
+    <div *cdkVirtualFor="let number of numbers" class="flex justify-center h-[100px] items-center border-2 border-solid border-red-500 box-border">
+        {{number}}
+    </div>
+</cdk-virtual-scroll-viewport>
+

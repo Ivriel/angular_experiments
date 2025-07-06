@@ -20,6 +20,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
 import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { Dialog2Component } from './components/dialog2/dialog2.component';
 import { TableComponent } from './components/table/table.component';
+import { ScrollingComponent } from './components/scrolling/scrolling.component';
 
 export const routes: Routes = [
     {
@@ -110,5 +111,9 @@ export const routes: Routes = [
     {
         path:'table',
         component:TableComponent
+    },
+    {
+        path:'scrolling',
+        component:ScrollingComponent
     }
 ];
