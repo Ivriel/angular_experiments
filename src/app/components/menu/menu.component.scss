@@ -1,0 +1,17 @@
+.center {
+    margin: 10rem;
+}
+
+
+.mat-mdc-mini-fab {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+.mat-mdc-mini-fab:hover {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+.mat-mdc-mini-fab .mat-icon {
+    color: #374151 !important;
+}
