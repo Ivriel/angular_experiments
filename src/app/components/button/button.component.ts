@@ -1,6 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { TitleService } from '../../services/title.service';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-button',
   imports: [MatButtonModule,MatButtonToggleModule],
@@ -10,4 +12,12 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 })
 export class ButtonComponent {
 
+  titleService = inject(TitleService)
+  http = inject(HttpClient)
+
+  constructor(){
+    this.http.get("https://backend.pypup.com/api/problems/fetch/add-numbers").subscribe((res:any)=> {
+        this.titleService.setTitle(res.result.title)
+    })
+  }
 }

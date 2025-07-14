@@ -21,11 +21,12 @@ import { SnackbarComponent } from './components/snackbar/snackbar.component';
 import { Dialog2Component } from './components/dialog2/dialog2.component';
 import { TableComponent } from './components/table/table.component';
 import { ScrollingComponent } from './components/scrolling/scrolling.component';
+import { SendEmailComponent } from './components/send-email/send-email.component';
 
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: '/button',
+        redirectTo: 'button',
         pathMatch: 'full'
     },
     {
@@ -115,5 +116,9 @@ export const routes: Routes = [
     {
         path:'scrolling',
         component:ScrollingComponent
+    },
+    {
+        path:'send-email',
+        component:SendEmailComponent
     }
 ];

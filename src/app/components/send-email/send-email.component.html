@@ -1,0 +1,6 @@
+
+    <input class="border border-black rounded" type="text" placeholder="Name" [(ngModel)]="formObj.name"/> <br/>
+    <input class="border border-black rounded" type="email" placeholder="Email" email [(ngModel)]="formObj.email"/><br/>
+    <input class="border border-black rounded" type="tel" placeholder="Phone" [(ngModel)]="formObj.phone"/><br/>
+    <textarea class="border border-black rounded" placeholder="Message" [(ngModel)]="formObj.message"></textarea><br/>
+    <button (click)="send()">Kirim</button>
