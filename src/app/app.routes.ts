@@ -22,6 +22,10 @@ import { Dialog2Component } from './components/dialog2/dialog2.component';
 import { TableComponent } from './components/table/table.component';
 import { ScrollingComponent } from './components/scrolling/scrolling.component';
 import { SendEmailComponent } from './components/send-email/send-email.component';
+import { DisabledDateComponent } from './components/disabled-date/disabled-date.component';
+import { LoginComponent } from './components/login/login.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -120,5 +124,18 @@ export const routes: Routes = [
     {
         path:'send-email',
         component:SendEmailComponent
+    },
+    {
+        path:'disable-date',
+        component:DisabledDateComponent
+    },
+    {
+        path:'login',
+        component:LoginComponent
+    },
+    {
+        path:'employee',
+        component:EmployeeComponent,
+        canActivate:[authGuard]
     }
 ];
