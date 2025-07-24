@@ -1,6 +1,6 @@
 export const environment = {
     production:false,
     loginApi:'loginApiUrl',
-    checkTokenApi:'checkTokenApiUrl',
+    refreshTokenApi:'refreshTokenApiUrl',
     employeeApi:'employeeApiUrl'
 };

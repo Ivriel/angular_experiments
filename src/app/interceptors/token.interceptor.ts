@@ -2,18 +2,18 @@ import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { catchError, throwError } from 'rxjs';
+import { catchError, switchMap, throwError } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
 
-
+  const authService = inject(AuthService)
   const router = inject(Router)
-  const cookieService = inject( CookieService );
 
-  if(req.url.includes("AGeneral/Login")) {
+  if(req.url.includes("AGeneral/Login") || req.url.includes("AGeneral/Refreshtoken")) {
     return next(req)
   }
 
-  const token = cookieService.get('accessToken')
+  const token = authService.getAccessToken()
 
   const newReq = req.clone({
     setHeaders:{
@@ -24,9 +24,25 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   return next(newReq).pipe(
     catchError((error:HttpErrorResponse)=> {
       if(error.status === 401) {
-        router.navigate(['/login'])
-        cookieService.delete('accessToken','/')
-        alert("Sesi anda telah berakhir. silahkan login kembali")
+        // coba refresh token
+       return authService.refreshToken().pipe(
+        switchMap((success)=> {
+          if(success) {
+            const newToken = authService.getAccessToken()
+            const retryReq = req.clone({
+              setHeaders:{
+                Authorization:`Bearer ${newToken}`
+              }
+            })
+            return next(retryReq)
+          } else {
+            authService.removeTokens()
+            alert("Sesi anda telah berakhir. silahkan login kembali")
+            router.navigateByUrl("login")
+            return throwError(() => error)
+          }
+        })
+       )
       }
       return throwError(()=> error)
     })

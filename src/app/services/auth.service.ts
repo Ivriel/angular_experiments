@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from '../../environments/environment';
-import { catchError, map, Observable, of } from 'rxjs';
+import { catchError, map, Observable, of, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -20,11 +20,17 @@ export class AuthService {
     return this.http.post(`${environment.loginApi}`,data)
   }
 
-  saveAccessToken(token:string){
-    this.cookieService.set('accessToken',token,{
-      secure:environment.production, // ini true atau false nya 
+  saveTokens(accessToken:string,refreshToken:string){
+    const secureFlag = environment.production
+    this.cookieService.set('accessToken',accessToken,{
+      secure:secureFlag, // ini true atau false nya 
       sameSite:'Strict',
       path:'/' // biar bisa diakses di semua halaman
+    })
+    this.cookieService.set('refreshToken',refreshToken,{
+      secure:secureFlag,
+      sameSite:'Strict',
+      path:'/'
     })
   }
 
@@ -32,21 +38,29 @@ export class AuthService {
     return this.cookieService.get('accessToken');
   }
 
-  removeAccessToken(){
-    this.cookieService.delete('accessToken');
-    this.router.navigateByUrl("login")
+  getRefreshToken(){
+    return this.cookieService.get('refreshToken')
   }
 
-  checkTokenValidity():Observable<boolean>{
-    const token = this.getAccessToken()
-    if(!token) {
+  removeTokens(){
+    this.cookieService.delete('accessToken','/');
+    this.cookieService.delete('refreshToken','/')
+  }
+
+  refreshToken():Observable<boolean> {
+    const refreshToken= this.getRefreshToken()
+    if(!refreshToken) {
       return of(false)
     }
 
-    return this.http.post(`${environment.checkTokenApi}`,{}).pipe(
+    return this.http.post<any>(`${environment.refreshTokenApi}`,{refreshtoken: refreshToken}).pipe(
+      tap(res => {
+        this.saveTokens(res.accessToken,res.refreshToken)
+      }),
       map(()=> true),
-      catchError(()=> of(false))
+      catchError(()=> of(false)
     )
+  )
   }
 
   getEmployee(){
