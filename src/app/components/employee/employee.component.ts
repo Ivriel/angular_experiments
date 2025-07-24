@@ -24,7 +24,7 @@ export class EmployeeComponent implements OnInit{
   }
 
   onLogout(){
-    this.authService.removeAccessToken()
+    this.authService.removeTokens()
   }
 
 }

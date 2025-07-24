@@ -22,9 +22,9 @@ export class LoginComponent {
       if(res.accessToken != null) {
       this.feedbackLogin = res
       console.log(res)
-      this.authService.saveAccessToken(res.accessToken)
       alert("Berhasil login")
       this.router.navigateByUrl("employee")
+      this.authService.saveTokens(res.accessToken,res.refreshToken)
       } else {
         alert("Kredensial Salah")
       }
