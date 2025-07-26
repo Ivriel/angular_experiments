@@ -1,1 +1,26 @@
-<p>report-detail works!</p>
+<div *ngIf="detailCuti" 
+     class="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg border border-gray-200">
+  <h2 class="text-2xl font-bold text-gray-800 border-b pb-3 mb-4">
+    Detail Cuti: <span class="text-blue-600">{{ detailCuti.jenisCuti }}</span>
+  </h2>
+
+  <div class="space-y-2 text-gray-700 text-sm">
+    <p><span class="font-semibold text-gray-900">Nama:</span> {{ detailCuti.nama }}</p>
+    <p><span class="font-semibold text-gray-900">Tanggal:</span> {{ detailCuti.tanggalMulai }} 
+       <span class="text-gray-500">s/d</span> {{ detailCuti.tanggalSelesai }}</p>
+    <p><span class="font-semibold text-gray-900">Lama:</span> {{ detailCuti.lama }} hari</p>
+    <p><span class="font-semibold text-gray-900">Keterangan:</span> {{ detailCuti.keterangan }}</p>
+  </div>
+
+  <div class="mt-6 text-right">
+    <a routerLink="/report"
+       class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md shadow hover:bg-blue-700 transition-colors duration-200">
+      Kembali
+    </a>
+  </div>
+</div>
+
+<div *ngIf="!detailCuti" 
+     class="max-w-lg mx-auto mt-10 p-6 text-center bg-red-50 text-red-600 rounded-lg border border-red-200 shadow">
+  <p>Data cuti tidak ditemukan.</p>
+</div>

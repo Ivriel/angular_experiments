@@ -28,6 +28,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { authGuard } from './guards/auth.guard';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { ReportComponent } from './components/report/report.component';
+import { ReportDetailComponent } from './components/report-detail/report-detail.component';
 
 export const routes: Routes = [
     {
@@ -147,5 +148,9 @@ export const routes: Routes = [
     {
         path:'report',
         component:ReportComponent
+    },
+    {
+        path:'report-detail/:id',
+        component:ReportDetailComponent
     }
 ];

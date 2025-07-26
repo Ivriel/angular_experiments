@@ -1,4 +1,5 @@
 
+
 <mat-paginator
 [length]="totalKaryawan"
 [pageSize]="pageSize"
@@ -8,39 +9,51 @@
 >
 </mat-paginator>
 
-<hr/>
-<div *ngFor="let karyawan of paginatedKaryawan" class="mb-6 p-4 border rounded-lg shadow-md mx-3 mt-5 bg-white">
-    <h3 class="text-xl font-semibold text-gray-800">{{karyawan.nama}}</h3>
-    <table class="border ">
-        <thead>
-            <tr>
-                <th>No</th>
-                <th>Jenis Cuti</th>
-                <th>Tanggal</th>
-                <th>Lama</th>
-                <th>Keterangan</th>
-                <th>Detail</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let cuti of getPaginatedCuti(karyawan); let index = index">
-                <td>{{index+1}}</td>
-                <td>{{cuti.jenisCuti}}</td>
-                <td>{{cuti.tanggalMulai}} - {{cuti.tanggalSelesai}}</td>
-                <td>{{cuti.lama}}</td>
-                <td>{{cuti.keterangan}}</td>
-                <td>
-                    <a [routerLink]="['/report-detail',cuti.id]">Lihat Detail</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div *ngFor="let karyawan of paginatedKaryawan" 
+    class="mb-6 p-5 border rounded-lg shadow-lg bg-white hover:shadow-xl transition-shadow duration-300 mx-3">
 
+  <h3 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">
+    {{ karyawan.nama }}
+  </h3>
+
+  <div class="overflow-x-auto">
+    <table class="w-full border-collapse text-left text-sm">
+      <thead>
+        <tr class="bg-gray-100 text-gray-700 uppercase text-xs tracking-wider">
+          <th class="p-3 border">No</th>
+          <th class="p-3 border">Jenis Cuti</th>
+          <th class="p-3 border">Tanggal</th>
+          <th class="p-3 border">Lama</th>
+          <th class="p-3 border">Keterangan</th>
+          <th class="p-3 border text-center">Detail</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cuti of getPaginatedCuti(karyawan); let index = index"
+            class="hover:bg-gray-50 transition-colors duration-200">
+          <td class="p-3 border text-center">{{ index + 1 }}</td>
+          <td class="p-3 border">{{ cuti.jenisCuti }}</td>
+          <td class="p-3 border">{{ cuti.tanggalMulai }} - {{ cuti.tanggalSelesai }}</td>
+          <td class="p-3 border text-center">{{ cuti.lama }}</td>
+          <td class="p-3 border">{{ cuti.keterangan }}</td>
+          <td class="p-3 border text-center">
+            <a [routerLink]="['/report-detail', cuti.id]"
+               class="text-blue-600 hover:text-blue-800 font-medium underline">
+              Lihat Detail
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mt-4">
     <mat-paginator
-    [length]="karyawan.cuti.length"
-    [pageSize]="pageSizeCuti[karyawan.idKaryawan]"
-    [pageSizeOptions]="[5,10]"
-    (page)="onPageChangeCuti($event,karyawan.idKaryawan)"
-    [showFirstLastButtons]="true"
-    ></mat-paginator>
+      [length]="karyawan.cuti.length"
+      [pageSize]="pageSizeCuti[karyawan.idKaryawan]"
+      [pageSizeOptions]="[5,10]"
+      (page)="onPageChangeCuti($event,karyawan.idKaryawan)"
+      [showFirstLastButtons]="true">
+    </mat-paginator>
+  </div>
 </div>

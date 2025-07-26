@@ -1,4 +1,4 @@
-export const dummyKaryawan = [
+export const dummyKaryawan = [ // kata pak Ricky kemarin yang approved semua aja cutinya
     {
       idKaryawan: 1,
       nama: "Budi Santoso",

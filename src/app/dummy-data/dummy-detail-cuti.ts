@@ -1,4 +1,4 @@
-export const dummyDetailCuti = [
+export const dummyDetailCuti = [ // kata pak Ricky kemarin yang approved semua aja cutinya
     { // karyawan 1
       id: 101,
       idKaryawan: 1,
