@@ -1,3 +1,4 @@
-<form action="">
-    <input type="date" [min]="minDate" [max]="maxDate">
+<form action="" (ngSubmit)="onSubmit()">
+    <input type="date" name="selecteddate" [min]="minDate" [max]="maxDate" [(ngModel)]="selecteddate">
+    <button type="submit">Submit</button>
 </form>

@@ -26,6 +26,8 @@ import { DisabledDateComponent } from './components/disabled-date/disabled-date.
 import { LoginComponent } from './components/login/login.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { authGuard } from './guards/auth.guard';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { ReportComponent } from './components/report/report.component';
 
 export const routes: Routes = [
     {
@@ -137,5 +139,13 @@ export const routes: Routes = [
         path:'employee',
         component:EmployeeComponent,
         canActivate:[authGuard]
+    },
+    {
+        path:'rxjs',
+        component:RxjsComponent
+    },
+    {
+        path:'report',
+        component:ReportComponent
     }
 ];

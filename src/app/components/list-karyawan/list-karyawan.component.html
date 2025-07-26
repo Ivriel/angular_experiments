@@ -1,0 +1,46 @@
+
+<mat-paginator
+[length]="totalKaryawan"
+[pageSize]="pageSize"
+[showFirstLastButtons]="true"
+[pageSizeOptions]="[3,5]"
+(page)="onPageChange($event)"
+>
+</mat-paginator>
+
+<hr/>
+<div *ngFor="let karyawan of paginatedKaryawan" class="mb-6 p-4 border rounded-lg shadow-md mx-3 mt-5 bg-white">
+    <h3 class="text-xl font-semibold text-gray-800">{{karyawan.nama}}</h3>
+    <table class="border ">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Jenis Cuti</th>
+                <th>Tanggal</th>
+                <th>Lama</th>
+                <th>Keterangan</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cuti of getPaginatedCuti(karyawan); let index = index">
+                <td>{{index+1}}</td>
+                <td>{{cuti.jenisCuti}}</td>
+                <td>{{cuti.tanggalMulai}} - {{cuti.tanggalSelesai}}</td>
+                <td>{{cuti.lama}}</td>
+                <td>{{cuti.keterangan}}</td>
+                <td>
+                    <a [routerLink]="['/report-detail',cuti.id]">Lihat Detail</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <mat-paginator
+    [length]="karyawan.cuti.length"
+    [pageSize]="pageSizeCuti[karyawan.idKaryawan]"
+    [pageSizeOptions]="[5,10]"
+    (page)="onPageChangeCuti($event,karyawan.idKaryawan)"
+    [showFirstLastButtons]="true"
+    ></mat-paginator>
+</div>
