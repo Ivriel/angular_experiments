@@ -15,6 +15,7 @@ export class ListKaryawanComponent implements OnInit{
     dataKaryawan:any[] = []
     paginatedKaryawan:any[] = []
 
+    // buat pagination karyawan
     pageSize:number = 3
     currentPage:number = 0
     totalKaryawan:number = 0

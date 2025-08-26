@@ -1,0 +1,20 @@
+<input type="text" [(ngModel)]="searchQuery">
+<ul>
+    @for (item of cityList ; track $index) {
+        <li> {{item}} </li>
+    }
+</ul>
+<br>
+<select name="" id="">
+    @for (item of cityList ; track $index) {
+        <option value=""> {{item}} </option>
+    }
+</select>
+
+<input type="text" placeholder="Student search" [(ngModel)]="studentSearch">
+@for (item of studentList | filterArray:studentSearch:['name','city','isActive']; track $index) {
+    <h1>{{item.name}}</h1>
+    <p>{{item.city}}</p>
+    <p>{{item.isActive}}</p>
+    <hr/>
+}

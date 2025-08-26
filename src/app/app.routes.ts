@@ -29,6 +29,7 @@ import { authGuard } from './guards/auth.guard';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportDetailComponent } from './components/report-detail/report-detail.component';
+import { SearchPipeComponent } from './components/search-pipe/search-pipe.component';
 
 export const routes: Routes = [
     {
@@ -152,5 +153,9 @@ export const routes: Routes = [
     {
         path:'report-detail/:id',
         component:ReportDetailComponent
+    },
+    {
+        path:'search-pipe',
+        component:SearchPipeComponent
     }
 ];
