@@ -30,6 +30,8 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportDetailComponent } from './components/report-detail/report-detail.component';
 import { SearchPipeComponent } from './components/search-pipe/search-pipe.component';
+import { TypewriterComponent } from './components/typewriter/typewriter.component';
+import { GalaxyComponent } from './components/galaxy/galaxy.component';
 
 export const routes: Routes = [
     {
@@ -157,5 +159,13 @@ export const routes: Routes = [
     {
         path:'search-pipe',
         component:SearchPipeComponent
+    },
+    {
+        path:'typewriter',
+        component:TypewriterComponent
+    },
+    {
+        path:'galaxy',
+        component:GalaxyComponent
     }
 ];

@@ -1,0 +1,98 @@
+<!-- Section Galaxy -->
+<div class="relative max-w-full h-screen bg-black overflow-hidden">
+    <!-- Galaxy background -->
+    <om-galaxy
+      [focal]="[0.5, 0.5]"
+      [rotation]="[1.0, 0.0]"
+      [starSpeed]="0.6"
+      [density]="1.2"
+      [hueShift]="200"
+      [glowIntensity]="0.5"
+      [saturation]="0.3"
+      [twinkleIntensity]="0.4"
+      [rotationSpeed]="0.05"
+      [repulsionStrength]="3"
+      [autoCenterRepulsion]="0"
+      [mouseInteraction]="true"
+      [mouseRepulsion]="true"
+      class="absolute inset-0 w-full h-full"
+    ></om-galaxy>
+  
+    <!-- Konten di atas galaxy -->
+    <div class="relative z-10 flex items-center justify-center h-full">
+      <div class=" rounded-2xl shadow-xl p-10 text-center max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+          🌌 Welcome to <span class="text-indigo-300">Ngx Galaxy</span>
+        </h1>
+        <p class="text-lg text-white/80 mb-6">
+          Efek bintang dengan atribut interaktif: repulsion, twinkle, hue shift.
+        </p>
+        <button class="px-6 py-3 rounded-full bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition">
+          🚀 Mulai Jelajah
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Section Content Lain -->
+  <div class="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div class="text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">
+        <om-typewriter
+          [words]="words"
+          [writeSpeed]="150"
+          [deleteDelay]="100"
+          [writeDelay]="500"
+          textCursorColor="#ffffff"
+        ></om-typewriter>
+      </h1>
+      <p class="text-lg md:text-xl text-white/80">
+        Ini efek typewriter pakai <span class="font-semibold">ngx-typewriter</span> ✨
+      </p>
+    </div>
+  </div>
+  
+
+  <div class="min-h-screen bg-gray-900 flex flex-col items-center justify-center space-y-8 p-4 text-white">
+
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Demo Marquee</h1>
+  
+        <!-- Implementasi marquee yang benar untuk versi 2.0.0 -->
+        <div class="marquee-wrapper">
+          <om-marquee
+            [reverse]="false"
+            [animationDuration]="'15s'"
+            [marqueeGap]="'2rem'"
+            [pauseOnHover]="true"
+            styleClass="custom-marquee">
+            <div #OmMarqueeContent class="marquee-item bg-blue-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+              🚀 Item 1 - Hewhewhe
+            </div>
+            <div #OmMarqueeContent class="marquee-item bg-green-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+              ⭐ Item 2 - Sdksdsnd
+            </div>
+            <div #OmMarqueeContent class="marquee-item bg-purple-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+              🎯 Item 3 - Dksjskjd
+            </div>
+            <div #OmMarqueeContent class="marquee-item bg-red-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+              🔥 Item 4 - Test Content
+            </div>
+            <div #OmMarqueeContent class="marquee-item bg-yellow-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+              ⚡ Item 5 - More Content
+            </div>
+            <div #OmMarqueeContent class="marquee-item bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+              🌟 Item 6 - Additional
+            </div>
+          </om-marquee>
+        </div>
+
+  
+    <div class="w-full flex justify-center">
+      <div class="max-w-xl bg-gray-800 p-6 rounded-lg shadow-lg">
+        <p class="text-gray-300">Konten tambahan di bawah marquee — tetap di tengah layar.</p>
+      </div>
+    </div>
+  
+  </div>
+  
+  
